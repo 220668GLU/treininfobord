@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>treinbord</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body onload="startTime()">
+  <body>
+    <div id="bord">
+      <div id="links">
+        <div id="spoor">
+          <h1 id="spoortxt">spoor</h1>
+          <h2 id="nummer">13b</h2>
+        </div>
+      </div>
+
+      <div id="midden">
+        <div id="information">
+          <div id="txt"> </div>
+          <div id="intercity">
+            intercity
+            <img src="assets/images/ns.png" alt="ns" />
+          </div>
+          <div id="info">
+            <h1>DEVENTER</h1>
+            <h5>
+              via Rotterdam Alexan, Gouda, Utrecht Centraal, Amersfoort en
+              Apeldoorn
+            </h5>
+          </div>
+          <div id="one">
+            21:35 intercity leeuwarden rijdt niet
+            <br />
+            09:20 intercity deventer
+          </div>
+          <div id="two"></div>
+        </div>
+      </div>
+
+      <div id="rechts">
+        <img src="assets/images/klok.jpg" alt="klok">
+      </div>
+    </div>
+
+    <script>
+        function startTime() {
+          const today = new Date();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+          setTimeout(startTime, 1000);
+        }
+        
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+    </script>
+
+  </body>
+</html>
